@@ -75,6 +75,8 @@ albedo = ALBEDO(greenland)
 
 st.header("""Greenland Change of Albedo S of 70°N""")
 
+st.write("At elevations from 0 to 1500 m, i.e. elevations which experience summer melt and change of surface conditions.")
+
 with st.expander("How to use this page"):
     st.write("""# Summary
 
