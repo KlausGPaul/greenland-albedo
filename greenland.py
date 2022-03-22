@@ -73,6 +73,8 @@ mpl.rcParams['ytick.color'] = COLOR
 greenland = GREENLAND()
 albedo = ALBEDO(greenland)
 
+st.set_page_config(page_title="Greenland Change of Albedo S of 70°N", page_icon=None, layout="wide")
+
 st.header("""Greenland Change of Albedo S of 70°N""")
 
 st.write("At elevations from 0 to 1500 m, i.e. elevations which experience summer melt and change of surface conditions.")
