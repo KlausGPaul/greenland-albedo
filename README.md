@@ -44,3 +44,9 @@ repository.
 
 _"The problem with big data is that there is too much of it"_. To make sense of the data, conditions were mapped to hexagons using
 [Uber's H3 library](https://h3geo.org/). An alternative would have been employing [bokeh's datashader](https://examples.pyviz.org/nyc_taxi/nyc_taxi.html) to use "all" datapoints.
+
+### Note
+
+This app is a port of a more interactive, exploratory app which allowed more fine grained selection of data, but
+also required a postgresql/PostGIS database, together with the original netCDF data files. This may explain the use of
+classes in this code, which makes little sense for the app shown here, actually, but allowed for code re-use.

@@ -5,17 +5,12 @@ import seaborn as sns
 import matplotlib as mpl
 import pandas as pd
 import geopandas as gpd
-#from sqlalchemy import create_engine
 import datetime
 import numpy as np
-#import netCDF4
 from glob import glob
 import warnings
-#import SeabornFig2Grid as sfg
 from matplotlib.patches import Rectangle
 import matplotlib.image as mpimg
-#import h3
-#import yaml
 import time
 
 class GREENLAND():
@@ -121,10 +116,6 @@ maxdate = datetime.datetime(2014, 12, 31, 23, 59)
 
 selected_date = st.sidebar.date_input("Select Date",min_value=mindate,max_value=maxdate,value=datetime.date(2012,7,12))
 
-#selected_altitudes = st.sidebar.slider("Altitude Range",min_value=0,max_value=2000,value=(0,1500),step=100,help="select range of altitudes to be analysed")
-#elevation_from = selected_altitudes[0]
-#elevation_to   = selected_altitudes[1]
-
 st.sidebar.text("Temps KAN_B/L Greenland 67.1252°N,50.1832°W")
 
 
@@ -168,7 +159,6 @@ st.sidebar.pyplot(fig)
 
 st.sidebar.text("Watson River Flux 67.005159°N, -50.686733°W")
 fig,ax = plt.subplots(figsize=(10,6))
-#fig,ax = plt.subplots(figsize=(3,2))
 dfWatsonRiver = get_Watson_River_fluxes(selected_date)
 ax.plot(dfWatsonRiver.datetime_date,dfWatsonRiver.flux,alpha=1.0,color="black")
 ax.axvline(selected_date,color="grey")
@@ -182,7 +172,7 @@ st.sidebar.image("https://www.researchgate.net/profile/Katrin-Lindbaeck/publicat
 
 st.sidebar.text("Klaus G. Paul, 2021-2022")
 
-albedo.get_data(selected_date.year,selected_date.timetuple().tm_yday)#,elevation_from=elevation_from,elevation_to=elevation_to)
+albedo.get_data(selected_date.year,selected_date.timetuple().tm_yday)
 
 fig,(ax,ax2,ax3) = plt.subplots(1,3,figsize=(14,6),gridspec_kw={'width_ratios': [5, 1,3]})
 dfTmp = pd.DataFrame({"elev":albedo.elev,"albedo":albedo.albedo})
@@ -217,7 +207,7 @@ ax3.set_title(title)
 fig.patch.set_facecolor('#3A3A4A')
 st.pyplot(fig)
 
-gdfHexagons = get_albedobands_hexbins(selected_date)#,greenland)#,elevation_from=elevation_from,elevation_to=elevation_to)
+gdfHexagons = get_albedobands_hexbins(selected_date)
 
 fig,((axl,axc),(axr,axempty)) = plt.subplots(2,2,figsize=(20,18))
 
