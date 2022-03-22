@@ -24,8 +24,9 @@ class ALBEDO():
         self.greenland = greenland
     
     def get_data(self,yyyy,doy):
-        df = pd.read_parquet(f"./data/albedo_{yyyy}.parquet")
-        df = df[df.doy==doy]
+        #df = pd.read_parquet(f"./data/albedo_{yyyy}.parquet")
+        df = pd.read_parquet("./data/albedo", filters=[('yyyy','=',yyyy),('doy','=',doy)])
+        #df = df[df.doy==doy]
 
         self.lat = df.lat.values
         self.lon = df.lon.values
